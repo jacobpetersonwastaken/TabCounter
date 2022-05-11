@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="tab_counter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="popupContainer">
+        <div class="scoreContainer">
+            <button id="yourScore">Your Score</button>
+            <button id="globalScore">Global Score <span id="globalScoreInfo">Coming soon.</span></button>
+        </div>
+        <div class="loginContainer">
+            <button class="loginButton">Login <span class="loginButtonInfo">Coming soon.</span></button>
+        </div>
+        <table class="countDataTable">
+            <tr>
+                <td id="tabsCurrentlyOpen">Tabs currently Open:</td>
+                <td id="tabsCurrentlyOpenData"></td>
+            </tr>
+            <tr>
+                <td>Tabs opened today:</td>
+                <td id="tabsOpenedTodayData"></td>
+            </tr>
+            <tr>
+                <td id="tabOpenTd">Tabs left open:<span id="tabOpenS">Tabs from <u>Tabs Currently Open</u> that were left open from yesterday.</span>
+                </td>
+                <td id="tabsLeftOpenData"></td>
+            </tr>
+            <tr>
+                <td id="streakTd">Tabs left open streak:<span id="streakS">If <u>Tabs Currently Open</u> falls below <u>Tabs Left Open</u> at 24:00, then streak will end.</span>
+                </td>
+                <td><span id="tabsLeftOpenStreakData"></span> Days</td>
+            </tr>
+            <tr>
+                <td>Tabs opened since install:</td>
+                <td id="tabsOpenedSinceInstallData"></td>
+            </tr>
+        </table>
+
+        <script src="popup.js"></script>
+    </div>
+</body>
+
+</html>

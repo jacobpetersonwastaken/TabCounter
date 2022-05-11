@@ -1,0 +1,165 @@
+/*Main containers */
+
+body {
+    background-color: 557B83;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+#popupContainer {
+    background-color: 383838;
+    border-radius: 10px;
+    border: 3px solid black;
+    padding: 10px;
+}
+
+
+/*Buttons */
+
+button {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: 383838;
+    border-radius: 6px;
+    border: 3px solid black;
+}
+
+
+/*Global score button */
+
+#globalScore {
+    width: 160px;
+    height: 35px;
+}
+
+
+/*Little notification box when button is hovered */
+
+#globalScoreInfo {
+    border-radius: 10px;
+    border: 3px solid black;
+    display: none;
+    position: absolute;
+    color: #fff;
+    background: #112B3C;
+    padding: 5px;
+    z-index: 2;
+}
+
+#globalScore {
+    position: relative;
+}
+
+#globalScore:hover #globalScoreInfo {
+    opacity: 1.0;
+    display: block;
+    text-align: center;
+}
+
+
+/*Your score button */
+
+#yourScore {
+    width: 160px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.scoreContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+
+/*Login button */
+
+.loginContainer {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+/*Login button notification box when button is hovered */
+
+.loginButtonInfo {
+    opacity: 1.0;
+    border-radius: 10px;
+    border: 3px solid black;
+    display: none;
+    position: absolute;
+    color: #fff;
+    background: #112B3C;
+    padding: 5px;
+    z-index: 5;
+}
+
+.loginButton {
+    position: relative;
+}
+
+.loginButton:hover .loginButtonInfo {
+    display: block;
+    text-align: center;
+}
+
+
+/*Tab data for table */
+
+.countDataTable {
+    height: 200px;
+    width: 300px;
+    outline: none;
+    margin: 10px;
+    border: none;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+
+/*Tabs left open notification box when tabs left open is hovered */
+
+#tabOpenS {
+    border-radius: 10px;
+    border: 3px solid black;
+    display: none;
+    position: absolute;
+    color: #fff;
+    background: #112B3C;
+    padding: 5px;
+    z-index: 2;
+}
+
+#tabOpenTd {
+    position: relative;
+}
+
+#tabOpenTd:hover #tabOpenS {
+    display: block;
+    text-align: center;
+}
+
+
+/*Streaks from tabs left open notification box when tabs left open streak
+is hovered */
+
+#streakS {
+    border-radius: 10px;
+    border: 3px solid black;
+    display: none;
+    position: absolute;
+    color: #fff;
+    background: #112B3C;
+    padding: 5px;
+}
+
+#streakTd {
+    position: relative;
+}
+
+#streakTd:hover #streakS {
+    display: block;
+    text-align: center;
+}
