@@ -16,22 +16,27 @@ chrome.runtime.onInstalled.addListener(() => {
         chrome.storage.sync.set({ "tabsOpenedSinceInstallData": tabsOpenedSinceInstallData });
     });
 });
-// new tab listener
-// on new tab opened we count then update tabs opened today then save
-chrome.tabs.onUpdated.addListener(function(tavId, changeInfo, tab) {
+// Any change listener
+// On any update we check for tabs currently open then save.
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     // once tab open is complete
     if (changeInfo.status == 'complete') {
         chrome.tabs.query({ windowType: 'normal' }, function(tabs) {
             var tabsCurrentlyOpenData = tabs.length
                 // saves the number of tabs currently open
             chrome.storage.sync.set({ "tabsCurrentlyOpenData": tabsCurrentlyOpenData });
-            // updates the number of tabs opened today
-            chrome.storage.sync.get("tabsOpenedTodayData", function(result) {
-                var tabsOpen = result["tabsOpenedTodayData"] + 1
-                chrome.storage.sync.set({ "tabsOpenedTodayData": tabsOpen });
-            });
+
         });
     }
+});
+// Tab opened listener
+// On new tab opened we update the count and save data.
+chrome.tabs.onCreated.addListener(function(tab) {
+    // updates the number of tabs opened today
+    chrome.storage.sync.get("tabsOpenedTodayData", function(result) {
+        var tabsOpen = result["tabsOpenedTodayData"] + 1
+        chrome.storage.sync.set({ "tabsOpenedTodayData": tabsOpen });
+    });
 });
 // close tab listener
 // when user closes tab we updates the count then save
@@ -44,15 +49,16 @@ chrome.tabs.onRemoved.addListener(function() {
 });
 // function updates all of the values at 12AM.
 function nextDayUpdate() {
-    // opens tabs opened today and tabs since installed 
+    console.log("this is running. it worked maybe")
+        // opens tabs opened today and tabs since installed 
     chrome.storage.sync.get("tabsOpenedSinceInstallData", ({ tabsOpenedSinceInstallData }) => {
         chrome.storage.sync.get("tabsOpenedTodayData", ({ tabsOpenedTodayData }) => {
             // addes tabs opened today to tabs opened since install
             var sumNum = tabsOpenedSinceInstallData + tabsOpenedTodayData
             chrome.storage.sync.set({ "tabsOpenedSinceInstallData": sumNum });
             // resets tabs open today
-            var tabsOpenedTodayData = 0
-            chrome.storage.sync.set({ "tabsOpenedTodayData": tabsOpenedTodayData });
+            var tabsOpenedToday = 0
+            chrome.storage.sync.set({ "tabsOpenedTodayData": tabsOpenedToday });
         });
     });
     // opens currently open tabs, tabs left open and  tabs left open streak
@@ -94,15 +100,20 @@ function updateTimeStamp() {
     var timeStamp = tomorrow.getTime();
     // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     // Test time below
-    // var testTimeStamp = 1652222142
+    // var testTimeStamp = 1652413666
     chrome.storage.sync.set({ "timeStamp": timeStamp });
 }
 // Function checks if it's a new day yet.
 function checkTimestamp() {
+
     chrome.storage.sync.get("timeStamp", ({ timeStamp }) => {
-        // If it's a brand new install and nothing there we run it.
+        console.log("this is the time stamp", timeStamp)
+            // If it's a brand new install and nothing there we run it.
         if (!timeStamp) {
+
             updateTimeStamp();
+            console.log("if the update time stamp function ran", timeStamp)
+
         } else {
             // If the time now is greater than the time stamp (its past 12AM)
             // then we will update the data and get a new timestamp for the next day
@@ -114,4 +125,9 @@ function checkTimestamp() {
     });
 }
 //Runs every 2 minutes 
-setInterval(checkTimestamp, 120000)
+setInterval(checkTimestamp, 60000)
+
+
+
+// needs to check when it staRTS UP If it meets the crieteria. i closed out last night before it could switch
+// and when i opened up this morning it didnt reset
