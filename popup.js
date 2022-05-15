@@ -29,3 +29,10 @@ chrome.storage.sync.get("tabsOpenedSinceInstallData", function(result) {
     var tabsSinceInstall = result["tabsOpenedSinceInstallData"]
     tabsOpenedSinceInstallData.textContent = String(tabsSinceInstall);
 });
+
+
+
+// send message from here or something from the global score button to the 
+// firebase js file
+
+// chrome.runtime.sendMessage()
