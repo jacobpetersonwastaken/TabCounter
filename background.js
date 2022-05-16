@@ -27,9 +27,6 @@ chrome.runtime.onInstalled.addListener(() => {
             chrome.storage.sync.set({ "tabsOpenedSinceInstallData": 0 });
         }
     });
-
-
-
 });
 // Any change listener
 // On any update we check for tabs currently open then save.
@@ -117,17 +114,11 @@ function updateTimeStamp() {
     tomorrow.setMilliseconds(0);
     // Save the new timestamp
     var timeStamp = tomorrow.getTime();
-    // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-    // Test time below
-    // var testTimeStamp = 1652413666
     chrome.storage.sync.set({ "timeStamp": timeStamp });
 }
 // Function checks if it's a new day yet.
 function checkTimestamp() {
     chrome.storage.sync.get("timeStamp", ({ timeStamp }) => {
-        // ******************************************************************logging here
-        // console.log("this is the time stamp", timeStamp)
-        // If it's a brand new install and nothing there we run it.
         if (!timeStamp) {
             updateTimeStamp();
         } else {
@@ -140,7 +131,5 @@ function checkTimestamp() {
         }
     });
 }
-
-
 //Runs every 2 minutes 
 setInterval(checkTimestamp, 60000)
