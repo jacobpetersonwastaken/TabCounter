@@ -10,11 +10,11 @@
 <body>
     <div id="popupContainer">
         <div class="scoreContainer">
-            <button id="yourScore">Your Score</button>
-            <button id="globalScore">Global Score <span id="globalScoreInfo">Coming soon.</span></button>
+            <a id="yourScore" style="background: rgba(85,123,131,0.5); cursor: pointer;">Your Score</a>
+            <a id="globalScore" style="cursor: pointer;">Global Score</a>
         </div>
         <div class="loginContainer">
-            <button class="loginButton">Login <span class="loginButtonInfo">Coming soon.</span></button>
+            <a id="loginButton" style="cursor: pointer;">Login</a>
         </div>
         <table class="countDataTable">
             <tr>
@@ -41,6 +41,7 @@
             </tr>
         </table>
         <script src="popup.js"></script>
+        <script type="text/javascript" src="oauth.js"></script>
     </div>
 </body>
 

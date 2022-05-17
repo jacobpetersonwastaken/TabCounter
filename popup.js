@@ -1,9 +1,11 @@
 // gets all of the html elements
-let tabsCurrentlyOpenData = document.getElementById("tabsCurrentlyOpenData");
-let tabsOpenedTodayData = document.getElementById("tabsOpenedTodayData");
-let tabsLeftOpenData = document.getElementById("tabsLeftOpenData");
-let tabsLeftOpenStreakData = document.getElementById("tabsLeftOpenStreakData");
-let tabsOpenedSinceInstallData = document.getElementById("tabsOpenedSinceInstallData");
+const tabsCurrentlyOpenData = document.getElementById("tabsCurrentlyOpenData");
+const tabsOpenedTodayData = document.getElementById("tabsOpenedTodayData");
+const tabsLeftOpenData = document.getElementById("tabsLeftOpenData");
+const tabsLeftOpenStreakData = document.getElementById("tabsLeftOpenStreakData");
+const tabsOpenedSinceInstallData = document.getElementById("tabsOpenedSinceInstallData");
+const globalButton = document.getElementById("globalScore");
+
 // gets num of tabs currently open and displays it
 chrome.storage.sync.get("tabsCurrentlyOpenData", function(result) {
     var tabsOpen = result["tabsCurrentlyOpenData"]
@@ -28,4 +30,17 @@ chrome.storage.sync.get("tabsLeftOpenStreakData", function(result) {
 chrome.storage.sync.get("tabsOpenedSinceInstallData", function(result) {
     var tabsSinceInstall = result["tabsOpenedSinceInstallData"]
     tabsOpenedSinceInstallData.textContent = String(tabsSinceInstall);
+});
+
+
+
+// Takes you to the global scores page
+globalButton.addEventListener("click", () => {
+    // location.href = "popupGlobal.html"
+    // send signal to fetch data on the background. js file
+    chrome.runtime.sendMessage({ command: "yup" }, function(response) {
+        console.log(response, " this is the mother fucking response")
+
+    });
+
 });

@@ -4,9 +4,14 @@
     "version": "1.1",
     "manifest_version": 3,
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "background.js",
+        "type": "module"
     },
-    "permissions": ["storage", "tabs"],
+    "oauth2": {
+        "client_id": "1043457479004-151pbuqli7kflutdoc205sotufrb34bq.apps.googleusercontent.com",
+        "scopes":["https://www.googleapis.com/auth/userinfo.email"]
+      },
+    "permissions": ["storage", "tabs", "identity"],
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
@@ -21,5 +26,6 @@
         "32": "/images/tab_count32.png",
         "48": "/images/tab_count48.png",
         "128": "/images/tab_count128.png"
-    }
+    },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnsuaMGl+6q/f/LarfEva7a6bSJ9e069EnZVK/72Ik7vfUsHzZTMdRXIfTgOjjJOyc0NoUs60+zwyyFe7xFLZvevQOf2jCFbi0EUB7NxHF0esRL/jUyhMKM5IAjvGcmSABUWw79mm8Vdwv/cnG50PvvRoBy3/Jn/kgTF6CQAApynovTVKCAKN2tTthjAJicmn+gpNp8r2Ok5jc1LPCzDF7Tnju70Z2QM8S+RmK/+Ar+auEdVB5dnwB2I7gaJ6IpnphFqp2nh6qRtH7FrF9QH/Vs8G4DCJ8gmjXVeO0qJvDh8kfd18QwjmP0giZC8Jmh5cMkTtpE8pdtDQt4WeXPP1YQIDAQAB"
 }
