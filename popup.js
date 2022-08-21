@@ -4,7 +4,16 @@ const tabsOpenedTodayData = document.getElementById("tabsOpenedTodayData");
 const tabsLeftOpenData = document.getElementById("tabsLeftOpenData");
 const tabsLeftOpenStreakData = document.getElementById("tabsLeftOpenStreakData");
 const tabsOpenedSinceInstallData = document.getElementById("tabsOpenedSinceInstallData");
+
+//link elements
+const discordButton = document.getElementById("discord");
+const redditButton = document.getElementById("reddit");
+const donateButton = document.getElementById("donate");
+
+//animated gif
+const background = document.getElementById("popupContainer");
 const globalButton = document.getElementById("globalScore");
+const loginButton = document.getElementById("loginButton");
 
 // gets num of tabs currently open and displays it
 chrome.storage.sync.get("tabsCurrentlyOpenData", function(result) {
@@ -32,15 +41,45 @@ chrome.storage.sync.get("tabsOpenedSinceInstallData", function(result) {
     tabsOpenedSinceInstallData.textContent = String(tabsSinceInstall);
 });
 
-
-
-// Takes you to the global scores page
-globalButton.addEventListener("click", () => {
-    // location.href = "popupGlobal.html"
-    // send signal to fetch data on the background. js file
-    chrome.runtime.sendMessage({ command: "yup" }, function(response) {
-        console.log(response, " this is the mother fucking response")
-
+//links
+    // onClick's logic below:
+    discordButton.addEventListener('click', function() {
+        var newURL = "https://discord.gg/RUVzxYCeHa";
+        chrome.tabs.create({ url: newURL });
+    });
+    redditButton.addEventListener('click', function() {
+        var newURL = "https://www.reddit.com/r/melockchain/";
+        chrome.tabs.create({ url: newURL });
+    });
+    donateButton.addEventListener('click', function() {
+        var newURL = "https://tabcounter.com/donate";
+        chrome.tabs.create({ url: newURL });
     });
 
-});
+donateButton.addEventListener("mouseover", () => playgif());
+donateButton.addEventListener("mouseleave", ()=> stopgif());
+function playgif() {
+    background.style.backgroundImage = "url(images/moneygif.gif)";
+}
+function stopgif(){
+    background.style.backgroundImage = "none";
+    background.style.backgroundColor = "222831";
+}
+
+
+
+
+globalButton.addEventListener("mouseover", () => playcomingsoon());
+globalButton.addEventListener("mouseleave", ()=> stopcomingsoon());
+
+loginButton.addEventListener("mouseover", () => playcomingsoon());
+loginButton.addEventListener("mouseleave", ()=> stopcomingsoon());
+
+
+function playcomingsoon() {
+    background.style.backgroundImage = "url(images/comingsoongif.gif)";
+}
+function stopcomingsoon(){
+    background.style.backgroundImage = "none";
+    background.style.backgroundColor = "222831";
+}

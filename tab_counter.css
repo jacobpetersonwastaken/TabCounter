@@ -1,58 +1,67 @@
 /*Main containers */
 
 body {
-    background-color: 557B83;
+    background-color: 000000;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Kanit';
 }
 
 #popupContainer {
-    background-color: 383838;
+    background-color: 222831;
     border-radius: 10px;
     border: 3px solid black;
     padding: 10px;
 }
-
-
-/*Buttons */
-
-button {
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    background-color: 383838;
-    border-radius: 6px;
-    border: 3px solid black;
-}
-
-a {
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    background-color: 383838;
-    border-radius: 6px;
-    border: 3px solid black;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 /*Global score button */
 
 #globalScore {
     width: 160px;
     height: 35px;
+    font-size: 22px;
+
+    color: white;
+    font-family: 'Kanit';
+    background-color: 222831;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 10px #000);
+    border: 2px solid black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-
+#globalScore:hover{
+    filter: drop-shadow(0px 0px 10px rgb(255, 0, 0));
+    border: 2px solid rgb(255, 0, 0);
+}
 /*Your score button */
 
 #yourScore {
     width: 160px;
     height: 35px;
+    font-size: 22px;
     margin-right: 10px;
+
+
+    color: white;
+    font-family: 'Kanit';
+    background-color: 222831;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
+    border: 2px solid black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+#yourScore:hover{
+    filter: drop-shadow(0px 0px 10px rgb(0, 217, 255));
+    border: 2px solid rgb(0, 217, 255);
+}
 .scoreContainer {
     display: flex;
     font-size: medium;
@@ -60,7 +69,6 @@ a {
     align-items: center;
     margin-bottom: 5px;
 }
-
 
 /*Login button */
 
@@ -73,8 +81,22 @@ a {
 #loginButton {
     width: 70px;
     height: 20px;
-}
 
+    color: white;
+    font-family: 'Kanit';
+    background-color: 222831;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 10px #000);
+    border: 2px solid black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loginButton:hover{
+    filter: drop-shadow(0px 0px 10px rgb(255, 0, 0));
+    border: 2px solid rgb(255, 0, 0);
+}
 
 /*Tab data for table */
 
@@ -110,6 +132,7 @@ a {
 #tabOpenTd:hover #tabOpenS {
     display: block;
     text-align: center;
+    
 }
 
 
@@ -133,4 +156,79 @@ is hovered */
 #streakTd:hover #streakS {
     display: block;
     text-align: center;
+}
+
+
+.social{
+    font-size: small;
+    display: flex;
+    cursor: pointer;
+    
+}
+#discord{
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    color: white;
+    font-family: 'Kanit';
+    background-color: 222831;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 10px #000);
+    border: 2px solid black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reddit{
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    color: white;
+    font-family: 'Kanit';
+    background-color: 222831;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 10px #000);
+    border: 2px solid black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.donateBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#donate{
+    height: 25px;
+    width: 80px;
+
+    color: white;
+    font-size: 15px;
+    font-family: 'Kanit';
+    background-color: 222831;
+    border-radius: 6px;
+    filter: drop-shadow(0px 0px 10px #000);
+    border: 2px solid black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding-bottom: 2px;
+}
+#discord:hover{
+    filter: drop-shadow(0px 0px 10px rgb(0, 217, 255));
+    border: 2px solid rgb(0, 217, 255);
+}
+#reddit:hover{
+    filter: drop-shadow(0px 0px 10px rgb(0, 217, 255));
+    border: 2px solid rgb(0, 217, 255);
+}
+#donate:hover{
+    filter: drop-shadow(0px 0px 10px rgb(0, 217, 255));
+    border: 2px solid rgb(0, 217, 255);
 }

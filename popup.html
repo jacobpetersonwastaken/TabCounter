@@ -4,13 +4,14 @@
     <link rel="stylesheet" href="tab_counter.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div id="popupContainer">
         <div class="scoreContainer">
-            <a id="yourScore" style="background: rgba(85,123,131,0.5); cursor: pointer;">Your Score</a>
+            <a id="yourScore" style="background: rgba(34,40,49,1.0); cursor: pointer;">Your Score</a>
             <a id="globalScore" style="cursor: pointer;">Global Score</a>
         </div>
         <div class="loginContainer">
@@ -40,6 +41,15 @@
                 <td id="tabsOpenedSinceInstallData"></td>
             </tr>
         </table>
+        <div class="social">
+            <a id="discord">
+                <img id="discordimg" href="https://discord.gg/RUVzxYCeHa" src="images\discord.png" alt="Discord" height="35px" width="35px"/>
+            </a>
+            <a id="reddit">
+                <img id="redditimg" src="images\Reddit.png" alt="Reddit" height="30px" width="30px"/>
+            </a>
+            <div class="donateBox"><a id="donate">Donate</a></div>
+        </div>
         <script src="popup.js"></script>
         <script type="text/javascript" src="oauth.js"></script>
     </div>
