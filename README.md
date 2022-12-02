@@ -5,6 +5,8 @@ Does your friend, significant other or maybe even yourself open way too many tab
 Download the extension [here](https://google.com).
 
 
-![Image of Extension](https://github.com/jacobpetersonwastaken/TabCounter/blob/main/tabcounterimg.PNG)
+![Image of Extension](https://github.com/jacobpetersonwastaken/TabCounter/blob/main/tab.gif)
+
+
 
 
